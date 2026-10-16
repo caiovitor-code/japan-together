@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Together</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <button
+            id="botao-menu"
+            class="botao-menu"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-navegacao"
+        >
+            ☰
+        </button>
+
+        <span class="logo">Japan Together 🇯🇵</span>
+
+        <nav id="menu-navegacao" class="menu-navegacao" hidden>
+            <button class="botao-navegacao ativo" data-secao="visao-geral">
+                Visão geral
+            </button>
+
+            <button class="botao-navegacao" data-secao="financeiro">
+                Financeiro
+            </button>
+
+            <button class="botao-navegacao" data-secao="planejamento">
+                Planejamento
+            </button>
+
+            <button class="botao-navegacao" data-secao="vida-japao">
+                Vida no Japão
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEÇÃO 1: VISÃO GERAL -->
+        <section id="visao-geral" class="secao">
+            <h1>Japan Together</h1>
+            <h2>Nosso objetivo</h2>
+            <p>Um sonho, duas pessoas, um projeto de cada vez.</p>
+            
+
+<div class="dashboard-resumo">
+
+    <article class="cartao-dashboard">
+        <div class="icone-dashboard">💰</div>
+        <p class="titulo-dashboard">Dinheiro guardado</p>
+        <h2 id="dashboard-economizado">R$ 0,00</h2>
+        <p class="detalhe-dashboard">Sua reserva para o Japão</p>
+    </article>
+
+    <article class="cartao-dashboard">
+        <div class="icone-dashboard">🎯</div>
+        <p class="titulo-dashboard">Meta financeira</p>
+        <h2 id="dashboard-meta">R$ 0,00</h2>
+        <p class="detalhe-dashboard">Objetivo de economia</p>
+    </article>
+
+    <article class="cartao-dashboard">
+        <div class="icone-dashboard">✅</div>
+        <p class="titulo-dashboard">Tarefas concluídas</p>
+        <h2 id="dashboard-tarefas">0 / 15</h2>
+        <div class="barra-dashboard">
+            <div id="dashboard-barra-tarefas"></div>
+        </div>
+        <p id="dashboard-percentual" class="detalhe-dashboard">0% concluído</p>
+    </article>
+
+    <article class="cartao-dashboard">
+        <div class="icone-dashboard">🇯🇵</div>
+        <p class="titulo-dashboard">Nosso objetivo</p>
+        <h2>Japão</h2>
+        <p class="detalhe-dashboard">Um passo de cada vez</p>
+    </article>
+
+    <article class="cartao-dashboard cartao-progresso-geral">
+        <div class="icone-dashboard">🇯🇵</div>
+        <p class="titulo-dashboard">Nossa jornada para o Japão</p>
+        <h2 id="dashboard-progresso-geral">0%</h2>
+        <div class="barra-dashboard">
+            <div id="dashboard-barra-geral"></div>
+        </div>
+        <p id="dashboard-mensagem-geral" class="detalhe-dashboard">
+            Vamos começar nossa jornada!
+        </p>
+    </article>
+
+    <!-- NOVO CARTÃO: VALOR QUE FALTA -->
+    <article class="cartao-dashboard">
+        <div class="icone-dashboard">🏁</div>
+        <p class="titulo-dashboard">Falta para a meta</p>
+        <h2 id="dashboard-falta">R$ 0,00</h2>
+        <p class="detalhe-dashboard">O que falta economizar</p>
+    </article>
+
+</div>
+
+</div>
+
+
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Nosso planejamento</h3>
+                    <p>Vamos organizar nossa mudança para o Japão juntos!</p>
+                </div>
+
+                <div class="card">
+                    <h3>Nossa meta financeira</h3>
+                    <p>Vamos planejar quanto precisamos economizar para a mudança.</p>
+                </div>
+            </div>
+
+            <button id="botao-sonho">Clique para começar!</button>
+            <p id="mensagem"></p>
+        </section>
+
+        <!-- SEÇÃO 2: FINANCEIRO -->
+        <section id="financeiro" class="secao" hidden>
+            <div class="financeiro">
+                <h2>Nosso objetivo financeiro</h2>
+                <p>Vamos planejar nossa mudança para o Japão!</p>
+
+                <label for="meta-financeira">Meta financeira (R$):</label>
+                <input
+                    type="number"
+                    id="meta-financeira"
+                    placeholder="Ex.: 30000"
+                    min="1"
+                >
+
+                <label for="valor-economizado">Quanto já economizamos (R$):</label>
+                <input
+                    type="number"
+                    id="valor-economizado"
+                    placeholder="Ex.: 5000"
+                    min="0"
+                >
+
+                <div class="resumo-financeiro">
+                    <div class="cartoes-financeiros">
+                        <div class="cartao-financeiro">
+                            <p>Meta total</p>
+                            <strong id="resultado-meta">R$ 0,00</strong>
+                        </div>
+
+                        <div class="cartao-financeiro">
+                            <p>Já economizamos</p>
+                            <strong id="resultado-economizado">R$ 0,00</strong>
+                        </div>
+                    </div>
+
+                    <p>Falta economizar: <strong id="resultado-falta">R$ 0,00</strong></p>
+                    <p>Meta alcançada: <strong id="resultado-porcentagem">0%</strong></p>
+                    <p id="mensagem-financeira"></p>
+
+                    <div class="barra-financeira">
+                        <div id="barra-financeira-preenchimento"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+<div class="historico">
+    <h2>Nosso histórico de economias</h2>
+    <p>Registre as entradas e retiradas do nosso dinheiro.</p>
+
+    <label for="tipo-movimentacao">Tipo de movimentação:</label>
+    <select id="tipo-movimentacao">
+        <option value="entrada">Adicionar dinheiro (+)</option>
+        <option value="retirada">Retirar dinheiro (-)</option>
+    </select>
+
+    <label for="valor-contribuicao">Valor (R$):</label>
+    <input
+        type="number"
+        id="valor-contribuicao"
+        placeholder="Ex.: 200"
+        min="0.01"
+        step="0.01"
+    >
+
+    <label for="descricao-contribuicao">Descrição:</label>
+    <input
+        type="text"
+        id="descricao-contribuicao"
+        placeholder="Ex.: Economia mensal ou imprevisto"
+        maxlength="100"
+    >
+
+    <button id="botao-adicionar-contribuicao">
+        Registrar movimentação
+    </button>
+
+    <p id="saldo-historico">
+        Saldo do histórico: R$ 0,00
+    </p>
+
+    <div id="lista-contribuicoes">
+        <p>Nenhuma movimentação registrada ainda.</p>
+    </div>
+</div>
+<button id="botao-limpar-historico" class="botao-limpar-historico">
+    Limpar histórico
+</button>
+
+<!-- MISSÃO 21: GRÁFICO FINANCEIRO -->
+
+
+<div class="cartao-grafico">
+    <h2>Evolução da nossa reserva</h2>
+
+    <p class="descricao-grafico">
+        Acompanhe como o saldo muda com cada entrada e retirada.
+    </p>
+
+    <div class="indicador-saldo-grafico">
+        <span class="indicador-saldo-titulo">
+            Saldo atual da reserva
+        </span>
+
+        <strong id="saldo-atual-grafico">R$ 0,00</strong>
+
+        <span class="indicador-saldo-descricao">
+            Atualizado conforme as movimentações
+        </span>
+    </div>
+
+    <div class="area-grafico">
+        <canvas
+            id="grafico-financeiro"
+            aria-label="Gráfico da evolução do saldo financeiro"
+            role="img"
+        ></canvas>
+    </div>
+
+    <p id="mensagem-grafico" class="descricao-grafico">
+        Registre uma movimentação para visualizar o gráfico.
+    </p>
+</div>
+
+        </section>
+
+        
+<!-- SEÇÃO 3: PLANEJAMENTO -->
+<section id="planejamento" class="secao" hidden>
+    <h1>Nosso planejamento para o Japão 🇯🇵</h1>
+    <p>Um passo de cada vez até realizarmos nosso sonho.</p>
+
+    <div class="progresso">
+        <h2>Progresso geral</h2>
+        <p>Tarefas concluídas: <span id="contador">0</span> de <span id="total-tarefas">0</span></p>
+
+        <div class="barra-progresso">
+            <div id="barra-preenchimento"></div>
+        </div>
+
+        <p id="aviso-progresso"></p>
+    </div>
+
+    <div class="categoria-planejamento">
+        <h2>📄 Documentação e vistos</h2>    
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="passaporte"> Verificar a validade dos passaportes</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="vistos"> Pesquisar opções de visto elegíveis</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="documentos"> Organizar documentos pessoais e acadêmicos</label>
+<label>
+    <input type="checkbox" class="tarefa-planejamento" data-id="requisitos-trabalho">
+    Verificar os requisitos de visto para trabalhar no Japão
+</label>
+    </div>
+
+    <div class="categoria-planejamento">
+        <h2>💼 Carreira e emprego</h2>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="curriculo"> Preparar currículo em inglês</label>  
+<label>
+    <input type="checkbox" class="tarefa-planejamento" data-id="perfil-profissional">
+    Atualizar o perfil profissional e os projetos técnicos
+</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="vagas"> Pesquisar vagas que aceitem candidatos estrangeiros</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="candidaturas"> Enviar candidaturas e acompanhar respostas</label>
+    </div>
+
+    <div class="categoria-planejamento">
+        <h2>💰 Preparação financeira</h2>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="orcamento"> Estimar o custo inicial da mudança</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="reserva"> Planejar uma reserva de emergência</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="passagem"> Pesquisar preços de passagens</label>
+    </div>
+
+    <div class="categoria-planejamento">
+        <h2>🏠 Moradia e cidade</h2>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="cidades"> Comparar cidades e custo de vida</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="moradia"> Pesquisar opções de moradia</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="chegada"> Planejar os primeiros dias no Japão</label>
+    </div>
+
+    <div class="categoria-planejamento">
+        <h2>🗣️ Idioma e preparação</h2>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="japones"> Criar uma rotina de estudo de japonês</label>    
+<label>
+    <input type="checkbox" class="tarefa-planejamento" data-id="plano-estudos">
+    Definir metas mensais para estudar japonês
+</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="ingles"> Praticar inglês para entrevistas</label>
+        <label><input type="checkbox" class="tarefa-planejamento" data-id="cultura"> Estudar costumes e regras do Japão</label>
+    </div>
+</section>
+    
+<!-- SEÇÃO 4: VIDA NO JAPÃO -->
+<section id="vida-japao" class="secao" hidden>
+    <h1>Vida no Japão 🇯🇵</h1>
+    <p>
+        Um guia para preparar nossa mudança e conhecer melhor
+        o país onde queremos construir nosso futuro.
+    </p>
+
+    <div class="cards-container">
+
+        <article class="card">
+            <h3>💴 Custo de vida</h3>
+            <p>
+                Entenda os principais gastos com aluguel,
+                alimentação, transporte, contas e despesas do dia a dia.
+            </p>
+            <ul>
+                <li>Compare o custo de vida entre cidades.</li>
+                <li>Pesquise despesas para uma pessoa ou um casal.</li>
+                <li>Planeje uma reserva para os primeiros meses.</li>
+            </ul>
+            <a href="https://www.japan.travel/en/plan/"
+               target="_blank" rel="noopener noreferrer">
+                Consultar informações práticas sobre o Japão
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>🛂 Vistos e imigração</h3>
+            <p>
+                Conheça as categorias de residência e os requisitos
+                oficiais para estudar, trabalhar ou morar no Japão.
+            </p>
+            <ul>
+                <li>Verifique qual categoria corresponde ao seu objetivo.</li>
+                <li>Confira os requisitos e documentos necessários.</li>
+                <li>Não planeje trabalhar sem autorização adequada.</li>
+            </ul>
+            <a href="https://www.moj.go.jp/isa/applications/status/index.html"
+               target="_blank" rel="noopener noreferrer">
+                Consultar categorias de residência
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>💼 Emprego e carreira</h3>
+            <p>
+                Explore oportunidades profissionais e prepare-se
+                para procurar emprego antes da mudança.
+            </p>
+            <ul>
+                <li>Pesquise empresas que contratam profissionais estrangeiros.</li>
+                <li>Prepare currículo e perfil profissional.</li>
+                <li>Confira os requisitos para trabalhar legalmente.</li>
+            </ul>
+            <a href="https://www.jetro.go.jp/en/hrportal/findjob.html"
+               target="_blank" rel="noopener noreferrer">
+                Explorar oportunidades profissionais
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>🏠 Moradia e chegada</h3>
+            <p>
+                Organize os primeiros passos para encontrar moradia
+                e se adaptar à rotina japonesa.
+            </p>
+            <ul>
+                <li>Pesquise aluguel e custos iniciais.</li>
+                <li>Planeje transporte e acesso aos serviços.</li>
+                <li>Organize documentos para a chegada.</li>
+            </ul>
+            <a href="https://www.jetro.go.jp/en/hrportal/"
+               target="_blank" rel="noopener noreferrer">
+                Consultar o guia para viver e trabalhar no Japão
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>🗣️ Idioma e cultura</h3>
+            <p>
+                Prepare-se para a comunicação diária e conheça
+                costumes que ajudam na adaptação.
+            </p>
+            <ul>
+                <li>Estude hiragana, katakana e vocabulário básico.</li>
+                <li>Pratique situações do cotidiano.</li>
+                <li>Conheça regras de convivência e etiqueta.</li>
+            </ul>
+            <a href="https://www.japan.travel/en/plan/"
+               target="_blank" rel="noopener noreferrer">
+                Conhecer idioma, costumes e informações práticas
+            </a>
+        </article>
+
+        <article class="card">
+            <h3>🏙️ Cidades e regiões</h3>
+            <p>
+                Compare regiões para encontrar um lugar que combine
+                com nosso orçamento e estilo de vida.
+            </p>
+            <ul>
+                <li>Compare aluguel e oportunidades de emprego.</li>
+                <li>Pesquise clima, neve e transporte.</li>
+                <li>Considere segurança e acesso a serviços.</li>
+            </ul>
+            <a href="https://www.japan.travel/en/plan/"
+               target="_blank" rel="noopener noreferrer">
+                Explorar informações sobre o Japão
+            </a>
+        </article>
+
+    </div>
+
+    <p>
+        <strong>Importante:</strong> os requisitos de visto,
+        as regras de trabalho e os custos podem mudar.
+        Confirme as informações em fontes oficiais antes de tomar decisões.
+    </p>
+</section>
+
+</main>
+
+    <script src="script.js"></script>
+</body>
+</html>
